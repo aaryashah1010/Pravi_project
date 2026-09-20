@@ -1,0 +1,35 @@
+# API image: Fastify + TypeScript run through tsx (no build step), plus the migration/seed scripts.
+FROM node:22-alpine
+
+ENV NODE_ENV=production \
+    UPLOAD_DIR=/data/uploads
+WORKDIR /app
+
+# Dependencies first so this layer is cached until a manifest changes.
+# All workspace manifests must be present or `npm ci` rejects the lockfile.
+COPY package.json package-lock.json ./
+COPY apps/api/package.json apps/api/
+COPY apps/web/package.json apps/web/
+COPY packages/shared/package.json packages/shared/
+RUN npm ci --omit=dev --workspace=@infraflow/api --workspace=@infraflow/shared \
+ && npm cache clean --force
+
+COPY tsconfig.base.json ./
+COPY packages/shared packages/shared
+COPY apps/api/tsconfig.json apps/api/
+COPY apps/api/src apps/api/src
+# The demo scenario seeder reuses these small helpers (no test framework needed).
+COPY apps/api/test/helpers apps/api/test/helpers
+COPY scripts scripts
+COPY infraflow-gov-project/db infraflow-gov-project/db
+
+# Uploaded evidence lives on a volume, owned by the unprivileged runtime user.
+RUN mkdir -p /data/uploads && chown -R node:node /data
+USER node
+
+EXPOSE 4000
+HEALTHCHECK --interval=10s --timeout=3s --start-period=240s --retries=6 \
+  CMD wget -qO- http://127.0.0.1:4000/health >/dev/null || exit 1
+
+# docker-init: apply migrations, load demo data once (both idempotent); then serve. `exec` keeps node as PID 1 for clean SIGTERM.
+CMD ["sh", "-c", "node --import tsx scripts/docker-init.ts && exec node --import tsx apps/api/src/server.ts"]

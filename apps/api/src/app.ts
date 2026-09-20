@@ -46,6 +46,8 @@ export async function buildApp(overrides: Partial<AppConfig> = {}, opts: BuildOp
     logger: config.logLevel === 'silent' ? false : { level: config.logLevel },
     genReqId: (req) => (req.headers['x-request-id'] as string) || randomUUID(),
     disableRequestLogging: config.nodeEnv === 'test',
+    // Production sits behind the nginx container only (the API port is not published), so its X-Forwarded-For is the real client.
+    trustProxy: config.nodeEnv === 'production',
   });
 
   app.decorate('db', db);

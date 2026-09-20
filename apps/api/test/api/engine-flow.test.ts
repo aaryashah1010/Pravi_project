@@ -80,9 +80,9 @@ describe('project -> rules -> workflow -> authority -> approvals (synthetic DEMO
     expect(wf.edges.find((e: any) => e.from === 'LOCAL_BODY_CLEARANCE' && e.to === 'CONTRACT')).toMatchObject({ dependencyType: 'CONDITIONAL', state: 'ACTIVE' });
 
     const ev = await app.db.query(`select count(*)::int c, count(*) filter (where result='INDETERMINATE')::int i from rule_evaluations where project_id=$1`, [pid]);
-    expect(ev.rows[0]).toEqual({ c: 16, i: 1 });
+    expect(ev.rows[0]).toEqual({ c: 13, i: 1 });
     const frozen = await app.db.query(`select context_snapshot->>'templateCode' t, jsonb_array_length(context_snapshot->'ruleVersions') n from workflow_instances where project_id=$1`, [pid]);
-    expect(frozen.rows[0]).toEqual({ t: 'GOV_BUILDING_STD', n: 12 });
+    expect(frozen.rows[0]).toEqual({ t: 'GOV_BUILDING_STD', n: 11 });
   });
 
   it('tasks are assigned to seats; the officer sees the work item and the verification task', async () => {

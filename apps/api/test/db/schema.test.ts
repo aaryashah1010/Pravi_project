@@ -126,7 +126,7 @@ describe('workflow template graph', () => {
     expect(await scalar<string>(pool, `select count(*)::text from workflow_node_templates`)).toBe('19');
     expect(await scalar<string>(pool, `select count(*)::text from workflow_edge_templates`)).toBe('22');
     const noRule = await pool.query(`select node_code from workflow_node_templates where rule_version_id is null order by node_code`);
-    expect(noRule.rows.map((r) => r.node_code)).toEqual(['COMPLETION', 'HANDOVER', 'WORK_ORDER']);
+    expect(noRule.rows.map((r) => r.node_code)).toEqual(['COMPLETION', 'EXEC_FINISHING', 'EXEC_FOUNDATION', 'EXEC_SUPERSTRUCTURE', 'HANDOVER', 'WORK_ORDER']);
   });
 
   it('template is acyclic (topological sort consumes every node)', async () => {

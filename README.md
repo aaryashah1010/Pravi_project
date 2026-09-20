@@ -53,6 +53,29 @@ The project uses a standard Node + PostgreSQL stack.
 
 ---
 
+## 🐳 Deploy with Docker (Postgres + API + nginx)
+
+Only nginx is published; it serves the web app and proxies `/api` to the API container. On first start the API container applies the migrations and loads the synthetic demo accounts and demo projects (all idempotent, never a reset).
+
+```bash
+# 1. Create .env next to docker-compose.prod.yml
+JWT_SECRET=<at least 32 random characters>      # required   e.g. openssl rand -hex 32
+POSTGRES_PASSWORD=<choose one>                  # recommended
+WEB_PORT=8088                                   # 80 on a real server
+PUBLIC_URL=http://localhost:8088                # the URL users type
+OPENAI_API_KEY=                                 # optional; empty = deterministic offline Copilot
+SEED_DEMO=1                                     # 0 = do not create demo accounts/projects
+
+# 2. Build and start (first start takes 1-2 minutes: migrations + demo history)
+docker compose -f docker-compose.prod.yml up -d --build
+
+# 3. Watch it come up, then open http://localhost:8088
+docker compose -f docker-compose.prod.yml ps
+docker compose -f docker-compose.prod.yml logs -f api
+```
+
+Update after a code change: `docker compose -f docker-compose.prod.yml up -d --build`. Data (Postgres and uploaded evidence) lives in the `pgdata` and `uploads` volumes and survives rebuilds. Stop with `docker compose -f docker-compose.prod.yml down` (add `-v` only to wipe all data).
+
 ## 🔑 Demo Credentials
 
 The login screen features **One-click Persona Buttons** on the right side. You do not need to type passwords to switch roles during the demo—just click the persona you want to impersonate!
@@ -61,22 +84,29 @@ If you prefer to log in manually, the password for *every* synthetic demo accoun
 > `Demo@12345`
 
 ### Available Demo Personas
-* **Division Officer** (`officer@demo.infraflow.local`): The initiator. Creates projects, submits documents, and completes early tasks.
-* **Executive Engineer** (`ee@demo.infraflow.local`): Mid-level authority. Reviews and forwards approvals.
-* **Chief Engineer** (`ce@demo.infraflow.local`): Top-level authority. Approves high-budget sanctions.
-* **Site Inspector** (`inspector@demo.infraflow.local`): On-the-ground reality check. Reports verified progress and raises blocking issues.
+| Login (`@demo.infraflow.local`) | Role |
+|---|---|
+| `officer` | Division officer: creates and submits projects, completes early tasks |
+| `engineer` | Assistant engineer: verifies documents, requests inspections, updates milestones |
+| `approver` | Executive Engineer: decides approvals routed to the EE position |
+| `se` | Superintending Engineer: decides approvals routed to the SE position (higher-value projects) |
+| `inspector` | Junior engineer / site inspector: submits geo-tagged inspections, raises issues |
+| `monitor` | Read-only monitoring across departments: dashboards, audit, Copilot |
+| `contractor` | Contractor: reports progress (advisory only), uploads documents |
+| `admin` | Administrator: manual authority assignment, vacant-seat tasks |
+
+> The delegation matrix for the demo department is **synthetic** and labelled so in the UI. The real R&B department has no delegation configured, so its approvals correctly show *manual review required*.
 
 ---
 
 ## 🧪 Recommended Demo Flow
 
-To see the true power of InfraFlow, we recommend walking through this exact scenario:
-
-1. **Rule Evaluation:** Log in as **Division Officer**. Create a New Project and set the Estimated Value to **6,00,00,000 (6 Crores)**. 
-2. **Dynamic Generation:** Click "Generate Workflow". Show the visual **Workflow Tab**. Explain how the system dynamically decided the *Chief Engineer* must approve the Technical Sanction based on the budget rule.
-3. **Authority Routing:** Log out, and log in as the **Chief Engineer**. Check your **Approvals Inbox**. Approve the request and check the immutable **Audit Log**.
-4. **Blockers & Cascading Delays:** Log out, and log in as the **Site Inspector**. Open project `DEMO-INF-0002` (which is pre-seeded as blocked). Go to the **Issues** tab and raise a critical blocker. Show how the visual workflow graph instantly cascades the delay downstream.
-5. **AI with Guardrails:** Open the **Copilot Tab** on the blocked project. Ask: *"Why is this project blocked?"* Watch the AI correctly diagnose the bottleneck and cite the exact rule code as proof.
+1. **Rule evaluation:** log in as `officer`, create a project with an estimated cost of **12 Cr** and leave "local-body approval required" as *Unknown*. Submit it. The graph appears with a *Conditional, pending verification* step instead of silently skipping it.
+2. **Authority routing:** log in as `se`. The administrative approval routes to the **SE** (synthetic rule: above 5 Cr). Open the approval, check the rule provenance and the amber **SYNTHETIC DEMO** badge, then approve. Log in as `approver`: technical sanction routes to the **EE** (up to 15 Cr).
+3. **Root blocker:** open `DEMO-INF-0003`. The Overview shows the root blocker (site handover waiting 8 days against a 3-day configured SLA) and how many steps it holds back. Click any step in the **Workflow** graph to trace upward to the root cause and downward to the impact.
+4. **Field inspection:** log in as `inspector`, open `DEMO-INF-0002` → **Inspections** → *Inspect* on the pending item. Fill the checklist, capture location, attach a photo and submit. A FAIL raises a quality issue that blocks the milestone.
+5. **AI with guardrails:** open the **Copilot** tab and ask *"Why is this project blocked?"*. The answer cites only rules from the registry, is labelled advisory, and works offline when no API key is set.
+6. **Honesty path:** open `DEMO-INF-0004` (real R&B department): the approval shows *manual review required* because no verified delegation exists.
 
 ---
 

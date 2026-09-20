@@ -1,0 +1,57 @@
+# Full stack: Postgres + API + nginx (serves the web app and proxies /api). Only nginx is published.
+#   docker compose -f docker-compose.prod.yml up -d --build
+# Variables come from a `.env` next to this file (see .env.example). JWT_SECRET is required.
+name: infraflow-prod
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: infraflow
+      POSTGRES_USER: infraflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-infraflow}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U infraflow -d infraflow"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://infraflow:${POSTGRES_PASSWORD:-infraflow}@db:5432/infraflow
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env (at least 32 random characters)}
+      CORS_ORIGINS: ${PUBLIC_URL:-http://localhost:8088}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      # 1 = load the synthetic demo accounts + demo projects on first start. Use 0 for a real deployment.
+      SEED_DEMO: ${SEED_DEMO:-1}
+      SEED_SCENARIOS: ${SEED_SCENARIOS:-1}
+    volumes:
+      - uploads:/data/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      # Localhost only by default: put your host nginx / TLS in front. Set WEB_BIND=0.0.0.0 to publish directly.
+      - "${WEB_BIND:-127.0.0.1}:${WEB_PORT:-8088}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  uploads:
