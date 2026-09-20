@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install*)",
+      "Bash(npm test*)",
+      "Bash(npx vitest*)",
+      "Bash(npx tsc*)",
+      "Bash(npx tsx*)",
+      "Bash(npx vite*)",
+      "Bash(docker compose *)",
+      "Bash(docker ps*)",
+      "Bash(docker logs *)",
+      "Bash(docker exec infraflow-db psql*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*.local)"
+    ]
+  }
+}

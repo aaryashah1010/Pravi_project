@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-body-md text-on-surface antialiased;
+    font-variant-numeric: tabular-nums;
+    overscroll-behavior: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 1px;
+  }
+
+  ::selection {
+    background: #dbe1ff;
+  }
+}
+
+/* React Flow: keep the canvas on the app background and hide its default attribution clutter. */
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__controls {
+  @apply rounded-lg border border-slate-300 shadow-sm;
+}
+
+.react-flow__controls-button {
+  @apply border-slate-200 bg-white text-slate-700;
+}
+
+.if-scroll-thin::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.if-scroll-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}

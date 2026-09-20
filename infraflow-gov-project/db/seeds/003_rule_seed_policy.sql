@@ -1,0 +1,3 @@
+-- Policy: do not seed an executable monetary authority rule from an unverified threshold.
+-- The first executable rule pack should only be added after primary/official-source verification.
+-- This file intentionally contains no guessed authority thresholds.

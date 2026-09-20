@@ -1,0 +1,25 @@
+name: infraflow
+
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: infraflow-db
+    # Dev/demo database: durability off for speed (Docker-on-Windows fsync makes DDL/reset ~10x slower).
+    command: ["postgres", "-c", "fsync=off", "-c", "synchronous_commit=off", "-c", "full_page_writes=off"]
+    environment:
+      POSTGRES_DB: infraflow
+      POSTGRES_USER: infraflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-infraflow}
+    ports:
+      - "5455:5432"
+    volumes:
+      - infraflow_pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U infraflow -d infraflow"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  infraflow_pgdata:

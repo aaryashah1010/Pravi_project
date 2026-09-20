@@ -1,0 +1,41 @@
+{
+  "name": "infraflow",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "InfraFlow - source-backed government infrastructure workflow platform (hackathon build)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "db:up": "docker compose up -d db",
+    "db:down": "docker compose down",
+    "db:migrate": "tsx scripts/db-migrate.ts",
+    "db:seed": "tsx scripts/db-seed.ts",
+    "db:reset": "tsx scripts/db-reset.ts",
+    "db:psql": "docker exec -it infraflow-db psql -U infraflow -d infraflow",
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w @infraflow/api\" \"npm run dev -w @infraflow/web\"",
+    "dev:api": "npm run dev -w @infraflow/api",
+    "dev:web": "npm run dev -w @infraflow/web",
+    "test": "vitest run",
+    "typecheck": "tsc -p apps/api/tsconfig.json --noEmit && tsc -p packages/shared/tsconfig.json --noEmit",
+    "demo:e2e": "tsx scripts/demo-e2e.ts",
+    "seed:scenarios": "tsx scripts/seed-scenarios.ts",
+    "db:demo": "tsx scripts/db-reset.ts && tsx scripts/seed-scenarios.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
+    "concurrently": "^9.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

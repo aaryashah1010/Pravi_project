@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#fefcff", "error-container": "#ffdad6", "surface-dim": "#cbdbf5", "on-primary": "#ffffff", "outline-variant": "#c5c5d3", "on-background": "#0b1c30", "on-surface": "#0b1c30", "on-surface-variant": "#444651", "surface-variant": "#d3e4fe", "primary-fixed-dim": "#b6c4ff", "on-primary-container": "#90a8ff", "on-secondary-fixed": "#00174b", "outline": "#757682", "on-primary-fixed": "#00164e", "surface-container": "#e5eeff", "error": "#ba1a1a", "on-error": "#ffffff", "secondary-fixed": "#dbe1ff", "inverse-on-surface": "#eaf1ff", "primary-container": "#1e3a8a", "secondary-fixed-dim": "#b4c5ff", "background": "#f8f9ff", "surface-container-low": "#eff4ff", "primary": "#00236f", "surface-container-highest": "#d3e4fe", "surface-tint": "#4059aa", "tertiary-fixed": "#9cf2e8", "on-primary-fixed-variant": "#264191", "surface-container-high": "#dce9ff", "tertiary": "#00312d", "surface-container-lowest": "#ffffff", "surface": "#f8f9ff", "tertiary-container": "#004944", "on-error-container": "#93000a", "inverse-surface": "#213145", "on-tertiary-fixed": "#00201d", "on-tertiary-fixed-variant": "#00504a", "surface-bright": "#f8f9ff", "secondary-container": "#316bf3", "on-tertiary-container": "#65bbb1", "inverse-primary": "#b6c4ff", "secondary": "#0051d5", "on-tertiary": "#ffffff", "primary-fixed": "#dce1ff", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#80d5cb", "on-secondary-fixed-variant": "#003ea8" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "gutter-dense": "0.5rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem", "margin": "1.5rem", "margin-compact": "1rem", "gutter": "1rem", "space-xl": "2rem" }, "fontFamily": { "body-lg": [ "Inter" ], "display-lg": [ "Inter" ], "code-tabular": [ "JetBrains Mono" ], "code-sm": [ "JetBrains Mono" ], "body-md": [ "Inter" ], "headline-md": [ "Inter" ], "label-md": [ "Inter" ], "body-sm": [ "Inter" ], "headline-lg": [ "Inter" ], "label-lg": [ "Inter" ], "headline-xl": [ "Inter" ] }, "fontSize": { "body-lg": [ "15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" } ], "display-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "code-tabular": [ "12px", { "lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "code-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "400" } ], "body-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-md": [ "16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "label-md": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-lg": [ "20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" } ], "headline-xl": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" } ] } } } }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/50 z-50 flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm border-b border-outline-variant/40 bg-surface-container-low"><img alt="InfraFlow Official Emblem Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VA0hjn0JNbaJWIipRKl3rRmFeiwJwLH8AUj_qljCJiWmsbD9Qs1ZBII4k5ciVPRqczWWuBUC_TGj3OQ__S5tdqGiJ2Fqmd9ARW25U7SQBwhczppTAC5SiXkDUuZ-Zxkshew29DWxpEs2qvHPZATeG3rrPqxzhqjWjx5atCJAVBRvNwEtC9NCesknL7m7B5ZuPAVJqMj-7AwsTGvkPr0j9lWSbj4QFR_BEJhI_fCsdVG5fimgq0VKaNTg"/><div class="flex flex-col min-w-0"><span class="font-headline-md text-headline-md text-primary tracking-tight leading-tight truncate">InfraFlow</span><span class="font-code-sm text-code-sm text-on-surface-variant truncate">Govt of Gujarat • IDS</span></div></div><div class="flex-1 overflow-y-auto py-space-sm"><div class="px-space-md py-space-xs"><span class="font-label-md text-label-md uppercase tracking-wider text-outline">Lifecycle Operations</span></div><nav class="flex flex-col px-space-sm space-y-0.5 mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-headline-md shadow-sm"><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview-control-center" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-label-lg text-label-lg">Overview / Control</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="projects" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">account_tree</span><span class="font-label-lg text-label-lg">Projects</span></div><span class="px-1.5 py-0.5 rounded bg-tertiary-container text-tertiary-fixed font-code-sm text-code-sm font-semibold uppercase">Active</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="my-tasks" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">assignment_turned_in</span><span class="font-label-lg text-label-lg">My Tasks</span></div><span class="px-1.5 py-0.5 rounded-full bg-secondary text-on-secondary font-code-sm text-code-sm font-semibold">7</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="approvals" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-label-lg text-label-lg">Approvals</span></div><span class="px-1.5 py-0.5 rounded-full bg-error text-on-error font-code-sm text-code-sm font-semibold">3</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="workflow-dependency-graph" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-label-lg text-label-lg">Workflow Graph</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="construction-monitoring" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">precision_manufacturing</span><span class="font-label-lg text-label-lg">Construction</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="field-inspections" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">tablet_mac</span><span class="font-label-lg text-label-lg">Field Inspections</span></div><span class="material-symbols-outlined text-[14px] text-outline">devices</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="contractors-vendors" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">engineering</span><span class="font-label-lg text-label-lg">Contractors &amp; Vendors</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="documents-evidence-vault" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">folder_special</span><span class="font-label-lg text-label-lg">Evidence Vault</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="issues-hindrances" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">report_problem</span><span class="font-label-lg text-label-lg">Hindrances</span></div><span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-code-sm text-code-sm font-semibold">2</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="variations-scope-changes" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">difference</span><span class="font-label-lg text-label-lg">Variations</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports-analytics" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">bar_chart</span><span class="font-label-lg text-label-lg">Analytics &amp; Reports</span></div></a></nav><div class="mt-space-md pt-space-sm border-t border-outline-variant/30"><div class="px-space-md py-space-xs"><span class="font-label-md text-label-md uppercase tracking-wider text-outline">Administration</span></div><nav class="flex flex-col px-space-sm space-y-0.5 mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-headline-md shadow-sm"><a class="flex items-center px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors gap-space-sm" data-path="organizations-hierarchy" href="#"><span class="material-symbols-outlined text-[18px]">corporate_fare</span><span class="font-label-lg text-label-lg">Org &amp; Hierarchy</span></a><a class="flex items-center px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors gap-space-sm" data-path="authority-rules-matrix" href="#"><span class="material-symbols-outlined text-[18px]">gavel</span><span class="font-label-lg text-label-lg">Authority Matrix</span></a><a class="flex items-center px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors gap-space-sm" data-path="workflow-engine-rules" href="#"><span class="material-symbols-outlined text-[18px]">schema</span><span class="font-label-lg text-label-lg">Workflow Engine</span></a><a class="flex items-center px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors gap-space-sm" data-path="audit-logs-tamper-history" href="#"><span class="material-symbols-outlined text-[18px]">lock_clock</span><span class="font-label-lg text-label-lg">Audit &amp; Tamper Log</span></a><a class="flex items-center px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors gap-space-sm" data-path="platform-settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-label-lg text-label-lg">Platform Settings</span></a></nav></div></div><div class="p-space-sm border-t border-outline-variant/40 bg-surface-container-low/60"><div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm"><span>NODE: GID-AHM-02</span><span class="inline-flex items-center text-tertiary font-medium"><span class="h-1.5 w-1.5 rounded-full bg-tertiary-container mr-1"></span>ONLINE</span></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest border-b border-outline-variant/40 z-40 px-space-md"><div class="h-16 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-3xl"><div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1.5 rounded border border-outline-variant/60"><span class="material-symbols-outlined text-[16px] text-primary">account_balance</span><span class="font-body-md text-body-md font-medium text-on-surface">Education Dept — Ahmedabad Division #2</span><span class="material-symbols-outlined text-[16px] text-outline">arrow_drop_down</span></div><div class="relative flex-1"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span><input class="w-full bg-background border border-outline-variant/60 rounded pl-9 pr-3 py-1.5 text-body-md font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors" placeholder="Search project code e.g. INF-2026-00482, contractor, or rule..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/50"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-code-sm text-code-sm font-semibold text-primary uppercase tracking-wide">Executive Engineer • L3 Authority</span></div><button aria-label="Notifications" class="relative p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm pl-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-body-md text-body-md font-semibold text-on-surface leading-snug">Er. Rajesh Patel (EE)</span><span class="font-code-sm text-code-sm text-on-surface-variant leading-none">Ahmedabad Div</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-Header Status Ribbon -->
+<div class="w-full bg-surface-container-lowest shadow-sm px-space-md py-3 flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div>
+<div class="flex items-center gap-2">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Infrastructure Control Center</h1>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-tertiary-container text-tertiary-fixed font-code-sm text-code-sm font-semibold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-pulse"></span>
+            LIVE SYSTEM • STATE MONITORING UNIT • GUJARAT
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Monitor project delivery, statutory approvals, critical path blockers, and authenticated field execution.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container text-on-surface hover:bg-surface-container-high rounded shadow-sm font-label-lg text-label-lg transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary">picture_as_pdf</span>
+        Export Cabinet Report (PDF)
+      </button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-primary-container text-on-primary hover:bg-secondary rounded shadow-sm font-label-lg text-label-lg transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+        + Initiate Project Proposal
+      </button>
+</div>
+</div>
+<div class="p-space-md space-y-space-md">
+<!-- Top Metrics Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-sm">
+<!-- Stat 1: Active Projects -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md uppercase tracking-wider text-outline">Active Projects</span>
+<span class="material-symbols-outlined text-[18px] text-primary">folder_open</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">142</span>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant font-medium">₹4,820 Cr Total</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 bg-surface-container-low/50 rounded p-2">
+<div class="flex items-center justify-between text-code-sm font-code-sm mb-1.5">
+<span class="text-tertiary font-semibold">94 On Track</span>
+<span class="text-secondary font-semibold">36 Delayed</span>
+<span class="text-error font-semibold">12 Critical</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="bg-tertiary-container h-full" style="width: 66.2%"></div>
+<div class="bg-secondary h-full" style="width: 25.3%"></div>
+<div class="bg-error h-full" style="width: 8.5%"></div>
+</div>
+</div>
+</div>
+<!-- Stat 2: Pending Approvals -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md uppercase tracking-wider text-outline">Pending Approvals</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">pending_actions</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">28</span>
+<span class="font-code-tabular text-code-tabular text-secondary font-medium">Avg Age: 4.2d</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 bg-surface-container-low/50 rounded p-2 flex items-center justify-between font-code-sm text-code-sm">
+<div class="flex flex-col">
+<span class="text-outline">Cross-Dept</span>
+<span class="text-on-surface font-semibold">9 Files</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/50"></div>
+<div class="flex flex-col">
+<span class="text-outline">Financial Sanctions</span>
+<span class="text-on-surface font-semibold">6 Files</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/50"></div>
+<div class="flex flex-col">
+<span class="text-outline">Technical NOC</span>
+<span class="text-on-surface font-semibold">13 Files</span>
+</div>
+</div>
+</div>
+<!-- Stat 3: Projects At Risk -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md uppercase tracking-wider text-outline">Projects At Risk</span>
+<span class="material-symbols-outlined text-[18px] text-secondary-container">warning</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">19</span>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant font-medium">Val: ₹840 Cr</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 bg-surface-container-low/50 rounded p-2">
+<div class="flex items-center justify-between text-code-sm font-code-sm mb-1.5 text-on-surface-variant">
+<span>11 Land/Site</span>
+<span>5 Statutory</span>
+<span>3 Agency</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="bg-secondary-container h-full" style="width: 58%"></div>
+<div class="bg-primary h-full" style="width: 26%"></div>
+<div class="bg-outline h-full" style="width: 16%"></div>
+</div>
+</div>
+</div>
+<!-- Stat 4: Blocked Projects -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md uppercase tracking-wider text-error">Blocked Projects</span>
+<span class="material-symbols-outlined text-[18px] text-error">block</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-error">7</span>
+<span class="font-code-tabular text-code-tabular text-error font-medium">Complete Freeze</span>
+</div>
+</div>
+<div class="mt-3 pt-2 bg-error-container/40 rounded p-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[16px]">priority_high</span>
+<span class="font-body-sm text-body-sm text-on-error-container font-medium leading-tight">
+            Impacting 24 downstream procurement &amp; civil contracts
+          </span>
+</div>
+</div>
+</section>
+<!-- CRITICAL ALERT: Root Blocker Banner Card -->
+<section class="bg-surface-container-lowest rounded-lg shadow-md overflow-hidden">
+<div class="bg-error px-space-md py-2 text-on-error flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">report_problem</span>
+<span class="font-label-lg text-label-lg font-bold tracking-wider uppercase">Critical Administrative Blocker Identified</span>
+<span class="font-code-sm text-code-sm bg-white/20 px-2 py-0.5 rounded">AUTO-ESCALATION LEVEL 2 ACTIVE</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-error/90 flex items-center gap-2">
+<span>Gujarat Public Works Manual Rule 18-B Invocation</span>
+</div>
+</div>
+<div class="p-space-md">
+<div class="flex flex-col xl:flex-row xl:items-start justify-between gap-space-md">
+<div class="flex-1 space-y-space-sm">
+<div class="flex flex-wrap items-center gap-2">
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Government School — Ahmedabad Division</h2>
+<span class="font-code-tabular text-code-tabular px-2 py-0.5 bg-surface-container rounded text-primary font-bold">INF-2026-00482</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-md text-label-md uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Root Blocker Active
+              </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-1">
+<div class="bg-surface-container-low p-space-sm rounded">
+<span class="font-label-md text-label-md text-outline uppercase block mb-1">Primary Blockage Root Cause</span>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">
+                  Site Handover Record Pending (Land Revenue verification delay at Taluka X)
+                </p>
+<div class="mt-2 flex items-center gap-3 font-code-sm text-code-sm text-on-surface-variant">
+<span>Pending Age: <strong class="text-error font-bold font-code-tabular">8 Consecutive Days</strong></span>
+<span>•</span>
+<span>SLA Limit: <span class="font-code-tabular">3 Days</span></span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded">
+<span class="font-label-md text-label-md text-outline uppercase block mb-1">Downstream Cascading Impact</span>
+<p class="font-body-md text-body-md text-on-surface">
+<span class="font-bold text-error">4 Critical Path Activities Locked:</span> Foundation excavation, Bulk raw material mobilization, Contractor mobilization advance release (#1), Site electrical substation NOC clearance.
+                </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<div>
+<span class="text-outline">Primary Authority:</span>
+<span class="font-semibold text-on-surface">Executive Engineer, Ahmedabad Division</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/60"></div>
+<div>
+<span class="text-outline">Taluka Jurisdiction:</span>
+<span class="font-semibold text-on-surface">Ahmedabad District / Revenue Taluka #4</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/60"></div>
+<div>
+<span class="text-outline">Assigned Revenue Nodal:</span>
+<span class="font-code-tabular text-code-tabular text-on-surface">OFF-REV-GJ-9021</span>
+</div>
+</div>
+</div>
+<div class="flex xl:flex-col gap-2 shrink-0 self-end xl:self-start">
+<button class="inline-flex items-center justify-center gap-2 px-3.5 py-2 bg-error text-on-error hover:opacity-95 rounded font-label-lg text-label-lg shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+              Trigger Taluka Escalation Notice
+            </button>
+<button class="inline-flex items-center justify-center gap-2 px-3.5 py-2 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-lg text-label-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+              View Full Project Workflow
+            </button>
+<button class="inline-flex items-center justify-center gap-2 px-3.5 py-2 bg-surface-container-lowest text-on-surface hover:bg-surface-container rounded font-label-lg text-label-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">find_in_page</span>
+              Inspect Pending Evidence
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Dual-Column Operations Deck -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- LEFT COLUMN: Approvals & Task SLA Management (7 Cols) -->
+<div class="xl:col-span-7 space-y-space-md">
+<!-- Urgent Pending Approvals Table Panel -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="px-space-md py-3 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_late</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Urgent Pending Approvals</h3>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-sm text-code-sm font-semibold">28 Total</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-md text-label-md text-primary font-semibold hover:underline">View All Approvals →</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="px-space-md py-2.5">Project &amp; Code</th>
+<th class="px-space-sm py-2.5">Approval Type</th>
+<th class="px-space-sm py-2.5">Authority Required</th>
+<th class="px-space-sm py-2.5 text-center">Age</th>
+<th class="px-space-sm py-2.5">Document Rule</th>
+<th class="px-space-md py-2.5 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-sm text-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors bg-error-container/10">
+<td class="px-space-md py-3">
+<div class="font-headline-md text-body-md text-on-surface font-semibold leading-tight">Govt School Ahmedabad</div>
+<span class="font-code-tabular text-code-tabular text-error font-medium">INF-2026-00482</span>
+</td>
+<td class="px-space-sm py-3 text-on-surface">
+<div class="font-medium">Site Handover Clearance</div>
+<span class="text-error font-code-sm text-code-sm">Blocker State</span>
+</td>
+<td class="px-space-sm py-3">
+<div class="font-medium text-on-surface">Superintending Eng.</div>
+<span class="text-outline text-code-sm font-code-sm">L4 Grade</span>
+</td>
+<td class="px-space-sm py-3 text-center">
+<span class="px-2 py-0.5 rounded bg-error text-on-error font-code-tabular text-code-tabular font-bold">8d</span>
+</td>
+<td class="px-space-sm py-3">
+<span class="font-code-tabular text-code-tabular bg-surface-container px-1.5 py-0.5 rounded text-on-surface">Rev. Manual R-001</span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="px-2.5 py-1 bg-primary-container text-on-primary hover:bg-secondary rounded font-label-md text-label-md transition-colors">Review</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="px-space-md py-3">
+<div class="font-headline-md text-body-md text-on-surface font-semibold leading-tight">Civil Hospital Extension</div>
+<span class="font-code-tabular text-code-tabular text-primary font-medium">INF-2026-00319</span>
+</td>
+<td class="px-space-sm py-3 text-on-surface">
+<div class="font-medium">Variation Sanction (&gt;10% Qty)</div>
+<span class="text-outline text-code-sm font-code-sm">₹42.8 Lakh Excess</span>
+</td>
+<td class="px-space-sm py-3">
+<div class="font-medium text-on-surface">Chief Engineer</div>
+<span class="text-outline text-code-sm font-code-sm">Apex Secretariat</span>
+</td>
+<td class="px-space-sm py-3 text-center">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-code-tabular text-code-tabular font-bold">5d</span>
+</td>
+<td class="px-space-sm py-3">
+<span class="font-code-tabular text-code-tabular bg-surface-container px-1.5 py-0.5 rounded text-on-surface">PWD Code Sec 4.2</span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="px-2.5 py-1 bg-primary-container text-on-primary hover:bg-secondary rounded font-label-md text-label-md transition-colors">Review</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="px-space-md py-3">
+<div class="font-headline-md text-body-md text-on-surface font-semibold leading-tight">Ring Road Overbridge #4</div>
+<span class="font-code-tabular text-code-tabular text-primary font-medium">INF-2026-00104</span>
+</td>
+<td class="px-space-sm py-3 text-on-surface">
+<div class="font-medium">Railway Safety NOC</div>
+<span class="text-error font-code-sm text-code-sm">Critical Clearance</span>
+</td>
+<td class="px-space-sm py-3">
+<div class="font-medium text-on-surface">Western Railway Board</div>
+<span class="text-outline text-code-sm font-code-sm">External Authority</span>
+</td>
+<td class="px-space-sm py-3 text-center">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-code-tabular text-code-tabular font-bold">14d</span>
+</td>
+<td class="px-space-sm py-3">
+<span class="font-code-tabular text-code-tabular bg-surface-container px-1.5 py-0.5 rounded text-on-surface">R-108 Inter-Dept</span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="px-2.5 py-1 bg-surface-container text-primary hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">Expedite</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="px-space-md py-3">
+<div class="font-headline-md text-body-md text-on-surface font-semibold leading-tight">Taluka Health Center Unit B</div>
+<span class="font-code-tabular text-code-tabular text-primary font-medium">INF-2026-00511</span>
+</td>
+<td class="px-space-sm py-3 text-on-surface">
+<div class="font-medium">Technical Sanction (Rev 2)</div>
+<span class="text-outline text-code-sm font-code-sm">Structural Retest</span>
+</td>
+<td class="px-space-sm py-3">
+<div class="font-medium text-on-surface">Executive Engineer</div>
+<span class="text-outline text-code-sm font-code-sm">Divisional Office</span>
+</td>
+<td class="px-space-sm py-3 text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-code-tabular text-code-tabular font-semibold">2d</span>
+</td>
+<td class="px-space-sm py-3">
+<span class="font-code-tabular text-code-tabular bg-surface-container px-1.5 py-0.5 rounded text-on-surface">SOR '25 Item 14</span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="px-2.5 py-1 bg-primary-container text-on-primary hover:bg-secondary rounded font-label-md text-label-md transition-colors">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Overdue Tasks & Milestone Watch -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm p-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">notification_important</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Overdue Milestone SLA Watch</h3>
+</div>
+<span class="font-code-sm text-code-sm text-outline">State KPI Threshold: 48h SLA</span>
+</div>
+<div class="mt-space-sm space-y-space-sm">
+<!-- Item 1 -->
+<div class="p- space-sm p-3 bg-surface-container-low rounded flex items-center justify-between gap- space-md">
+<div class="flex items-start gap-3">
+<div class="w-2 self-stretch bg-error rounded-full"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-body-md text-on-surface font-semibold">Quality Inspection Sign-off (Batch 04 Concrete)</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-code-sm text-code-sm font-bold">3d Breached</span>
+</div>
+<div class="flex items-center gap-3 font-code-sm text-code-sm text-on-surface-variant mt-1">
+<span>Project: INF-2026-00388 (Kankaria Storm Drainage)</span>
+<span>•</span>
+<span>Officer: Dy. Exec Engineer (South Div)</span>
+</div>
+</div>
+</div>
+<button class="shrink-0 px-2.5 py-1 bg-surface-container-lowest hover:bg-surface-container text-error rounded font-label-md text-label-md transition-colors">
+                Send 24h Notice
+              </button>
+</div>
+<!-- Item 2 -->
+<div class="p- space-sm p-3 bg-surface-container-low rounded flex items-center justify-between gap- space-md">
+<div class="flex items-start gap-3">
+<div class="w-2 self-stretch bg-secondary rounded-full"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-body-md text-on-surface font-semibold">Joint Measurement Book (MB) Entry Closing</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-code-sm text-code-sm font-bold">SLA Expiring Today</span>
+</div>
+<div class="flex items-center gap-3 font-code-sm text-code-sm text-on-surface-variant mt-1">
+<span>Project: INF-2026-00210 (Riverfront Phase 3 North)</span>
+<span>•</span>
+<span>Officer: Sub-Divisional Officer A-12</span>
+</div>
+</div>
+</div>
+<button class="shrink-0 px-2.5 py-1 bg-surface-container-lowest hover:bg-surface-container text-primary rounded font-label-md text-label-md transition-colors">
+                Verify Log
+              </button>
+</div>
+</div>
+</div>
+<!-- Physical Infrastructure Geographic Distribution Map Preview -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Ahmedabad Region Delivery Clusters</h3>
+</div>
+<span class="font-code-sm text-code-sm text-outline">GIS Layer Synced • 12 Nodes Monitored</span>
+</div>
+<div class="w-full h-48 bg-cover bg-center rounded relative overflow-hidden flex items-end p-space-sm" data-location="Ahmedabad, Gujarat, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNrEbFI4I1qswKFAJ7QvCYHbvswhDJnDjr5yJIKMnFnGsEAvvLhx0ewQKUJw4Ishj80HXS7LJDemotxIoRj1CcXcpaS_7pkvgNrpHtBZWJq6K-1O0vOlv5wj2h01dq3YiOvSJU-ppJ10MKFz8FNuB_tzHtzgTMzAWMCzMFkehXYu3q0QdjZaCBwwn5ysuG3-8GWKmB49xcr1ok9OskMOwjhkw4--f2PjPMDR33HRL9yn0D56FoqnU')">
+<div class="bg-surface-container-lowest/90 backdrop-blur-sm p-2.5 rounded shadow-sm w-full flex items-center justify-between text-body-sm font-body-sm">
+<div class="flex items-center gap-3">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span class="font-semibold text-on-surface">Active Geo-fence Lock: 2 Sub-projects require taluka coordinate realignment</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-primary font-bold">23.0225° N, 72.5714° E</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Analytics, Financials & Live Audit Feed (5 Cols) -->
+<div class="xl:col-span-5 space-y-space-md">
+<!-- Physical vs Planned Progress Distribution Card -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Physical Execution Progress</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Weighted progress across key administrative sectors</p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-headline-xl text-primary font-bold">46.1%</span>
+<span class="text-error font-code-sm text-code-sm block font-semibold">-12.3% vs Target</span>
+</div>
+</div>
+<!-- Overall Comparison Progress Bar -->
+<div class="space-y-1 mb- space-md mb-4">
+<div class="flex justify-between text-code-sm font-code-sm text-on-surface-variant">
+<span>Target Physical Benchmark (58.4%)</span>
+<span>Actual Verified (46.1%)</span>
+</div>
+<div class="relative w-full h-3 bg-surface-container-high rounded overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-secondary-fixed opacity-70" style="width: 58.4%"></div>
+<div class="absolute top-0 left-0 h-full bg-primary-container" style="width: 46.1%"></div>
+</div>
+</div>
+<!-- Sectoral Breakdown Bars -->
+<div class="space-y-3 pt-2">
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="font-medium text-on-surface">Roads &amp; Buildings (48 projects)</span>
+<span class="font-code-tabular text-code-tabular text-on-surface font-semibold">62% / 70%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded overflow-hidden">
+<div class="bg-primary h-full" style="width: 62%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="font-medium text-on-surface">Education Dept Infrastructure (38 projects)</span>
+<span class="font-code-tabular text-code-tabular text-error font-semibold">34% / 54% (Severely Lagging)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded overflow-hidden">
+<div class="bg-error h-full" style="width: 34%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="font-medium text-on-surface">Health &amp; Family Welfare (32 projects)</span>
+<span class="font-code-tabular text-code-tabular text-on-surface font-semibold">51% / 56%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded overflow-hidden">
+<div class="bg-tertiary-container h-full" style="width: 51%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1">
+<span class="font-medium text-on-surface">Water Resources &amp; Sanitation (24 projects)</span>
+<span class="font-code-tabular text-code-tabular text-on-surface font-semibold">41% / 45%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded overflow-hidden">
+<div class="bg-secondary h-full" style="width: 41%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Financial Progress & Expenditure Card -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm p-space-md">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md text-on-surface">Financial Outlay &amp; Sanctioned Drawdown</h3>
+<span class="material-symbols-outlined text-[18px] text-outline">payments</span>
+</div>
+<div class="grid grid-cols-3 gap-2 my-space-sm text-center">
+<div class="bg-surface-container-low p-2 rounded">
+<span class="font-label-md text-label-md uppercase text-outline block">Allocated Budget</span>
+<span class="font-code-tabular text-body-md text-on-surface font-bold mt-0.5 block">₹4,820 Cr</span>
+<span class="font-code-sm text-code-sm text-outline">100% Cap</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded">
+<span class="font-label-md text-label-md uppercase text-outline block">Tech Sanctioned</span>
+<span class="font-code-tabular text-body-md text-primary font-bold mt-0.5 block">₹3,910 Cr</span>
+<span class="font-code-sm text-code-sm text-primary">81.1% Released</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded">
+<span class="font-label-md text-label-md uppercase text-outline block">Disbursed (MB-V)</span>
+<span class="font-code-tabular text-body-md text-tertiary font-bold mt-0.5 block">₹1,840 Cr</span>
+<span class="font-code-sm text-code-sm text-tertiary">38.1% Claimed</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container rounded flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant font-medium">Unutilized Sanction Gap:</span>
+<span class="font-code-tabular text-code-tabular font-bold text-on-surface">₹2,070 Cr Held in Escrow</span>
+</div>
+</div>
+<!-- Recent Verifiable Audit Activity (Live Stream) -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">lock_clock</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Verifiable Audit Feed</h3>
+</div>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">SHA-256 Validated</span>
+</div>
+<!-- Chronological List with Vertical Line -->
+<div class="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-outline-variant/40">
+<!-- Feed Item 1 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-secondary ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-tabular text-code-tabular font-bold text-on-surface">10:42:18 AM</span>
+<span class="font-code-sm text-code-sm text-outline">M-Book Verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Field measurement M-Book #442 uploaded with GPS tag <span class="font-code-tabular text-code-tabular text-primary font-semibold">(23.0225° N, 72.5714° E)</span> by Junior Engineer.
+              </p>
+<span class="font-code-sm text-code-sm text-outline block mt-0.5">Sig Hash: 8f9a...c341 • Ahmedabad Div #2</span>
+</div>
+<!-- Feed Item 2 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-error ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-tabular text-code-tabular font-bold text-error">09:15:02 AM</span>
+<span class="font-code-sm text-code-sm text-error font-semibold">Rule Triggered</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Statutory Rule R-001 automatically placed project freeze on <span class="font-code-tabular text-code-tabular font-bold">INF-2026-00482</span> due to unresolved Taluka revenue demarcation.
+              </p>
+<span class="font-code-sm text-code-sm text-outline block mt-0.5">Engine Auto-Lock • Node GID-AHM-02</span>
+</div>
+<!-- Feed Item 3 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-tertiary-container ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-tabular text-code-tabular font-bold text-on-surface">Yesterday 17:30</span>
+<span class="font-code-sm text-code-sm text-tertiary font-semibold">Milestone Cleared</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Milestone 3 (Sub-structure casting) certified for <span class="font-code-tabular text-code-tabular text-primary font-semibold">INF-2026-00210</span> after Executive Engineer digital sign-off.
+              </p>
+<span class="font-code-sm text-code-sm text-outline block mt-0.5">Officer ID: ER-RAJESH-PATEL (L3)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
